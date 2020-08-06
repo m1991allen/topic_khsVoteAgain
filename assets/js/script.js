@@ -21,14 +21,14 @@ function ajax_gsheet() {
             $(".num3_bar").css("width", plProBar3.toFixed(2) + "%")
 
 
-            $(".num1_vote span").html(playerVote1.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
-            $(".num1_mb_vote span").html(playerVote1.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
+            $(".num1_vote span").html(playerVote1.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票")
+            $(".num1_mb_vote span").html(playerVote1.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票")
 
-            $(".num2_vote span").html(playerVote2.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
-            $(".num2_mb_vote span").html(playerVote2.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
+            $(".num2_vote span").html(playerVote2.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票")
+            $(".num2_mb_vote span").html(playerVote2.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票")
 
-            $(".num3_vote span").html(playerVote3.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
-            $(".num3_mb_vote span").html(playerVote3.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
+            $(".num3_vote span").html(playerVote3.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票")
+            $(".num3_mb_vote span").html(playerVote3.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票")
 
         }
     });
