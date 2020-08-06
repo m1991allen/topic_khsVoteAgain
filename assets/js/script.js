@@ -10,7 +10,7 @@ function ajax_gsheet() {
             let playerVote2 = data.feed.entry[5].content.$t
             let playerVote3 = data.feed.entry[6].content.$t
             let progressTotal = data.feed.entry[7].content.$t
-
+            // toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票"
 
             let plProBar1 = playerVote1 / progressTotal * 100
             let plProBar2 = playerVote2 / progressTotal * 100
@@ -21,14 +21,14 @@ function ajax_gsheet() {
             $(".num3_bar").css("width", plProBar3.toFixed(2) + "%")
 
 
-            $(".num1_vote span").html(data.feed.entry[4].content.$t)
-            $(".num1_mb_vote span").html(data.feed.entry[4].content.$t)
+            $(".num1_vote span").html(playerVote1.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
+            $(".num1_mb_vote span").html(playerVote1.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
 
-            $(".num2_vote span").html(data.feed.entry[5].content.$t)
-            $(".num2_mb_vote span").html(data.feed.entry[5].content.$t)
+            $(".num2_vote span").html(playerVote2.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
+            $(".num2_mb_vote span").html(playerVote2.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
 
-            $(".num3_vote span").html(data.feed.entry[6].content.$t)
-            $(".num3_mb_vote span").html(data.feed.entry[6].content.$t)
+            $(".num3_vote span").html(playerVote3.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
+            $(".num3_mb_vote span").html(playerVote3.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票")
 
         }
     });
@@ -309,22 +309,6 @@ var map3 = {
     </tbody>
     `
 }
-
-let vote1 = document.querySelector(".num1_vote span")
-vote1.innerText = player1.vote.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")
-let vote1_mb = document.querySelector(".num1_mb_vote span")
-vote1_mb.innerText = player1.vote.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")
-
-let vote2 = document.querySelector(".num2_vote span")
-vote2.innerText = player2.vote.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")
-let vote2_mb = document.querySelector(".num2_mb_vote span")
-vote2_mb.innerText = player2.vote.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")
-
-let vote3 = document.querySelector(".num3_vote span")
-vote3.innerText = player3.vote.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")
-let vote3_mb = document.querySelector(".num3_mb_vote span")
-vote3_mb.innerText = player3.vote.toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
