@@ -1,16 +1,20 @@
-function ajax_gsheet() {
+function ajax_vote() {
     $.ajax({
-        url: 'https://spreadsheets.google.com/feeds/cells/1UVnq9a1zVIfygplsbOjOtMX2Bu6aUfet1PwN3MOM7bk/2/public/full?alt=json',
-
+        url: 'https://www.ftvnews.com.tw/API/Vote0815.aspx',
         type: 'GET',
         dataType: 'json',
-        success: function data_sheet(data) {
+        success: function data_vote(data) {
+            console.log(data.member1)
             // 計算 progress width 用的變數
-            let playerVote1 = data.feed.entry[4].content.$t
-            let playerVote2 = data.feed.entry[5].content.$t
-            let playerVote3 = data.feed.entry[6].content.$t
-            let progressTotal = data.feed.entry[7].content.$t
-            // toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬")+" 票"
+            // let playerVote1 = data.member1
+            // let playerVote2 = data.member2
+            // let playerVote3 = data.member3
+            // let progressTotal = data.total
+            let playerVote1 = '未 開'
+            let playerVote2 = '未 開'
+            let playerVote3 = '未 開'
+            let progressTotal = 0
+            toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票"
 
             let plProBar1 = playerVote1 / progressTotal * 100
             let plProBar2 = playerVote2 / progressTotal * 100
@@ -32,9 +36,9 @@ function ajax_gsheet() {
 
         }
     });
-} ajax_gsheet();
+} ajax_vote();
 
-setInterval(ajax_gsheet, 15000)
+setInterval(ajax_vote, 15000)
 
 // 陳其邁資料
 let player1 = {
