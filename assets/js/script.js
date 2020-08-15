@@ -4,7 +4,6 @@ function ajax_vote() {
         type: 'GET',
         dataType: 'json',
         success: function data_vote(data) {
-            console.log(data)
             // 計算 progress width 用的變數
             let playerVote1 = data.member1
             let playerVote2 = data.member2
