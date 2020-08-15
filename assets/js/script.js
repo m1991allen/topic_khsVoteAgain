@@ -4,16 +4,12 @@ function ajax_vote() {
         type: 'GET',
         dataType: 'json',
         success: function data_vote(data) {
-            console.log(data.member1)
+            console.log(data)
             // 計算 progress width 用的變數
-            // let playerVote1 = data.member1
-            // let playerVote2 = data.member2
-            // let playerVote3 = data.member3
-            // let progressTotal = data.total
-            let playerVote1 = '未 開'
-            let playerVote2 = '未 開'
-            let playerVote3 = '未 開'
-            let progressTotal = 0
+            let playerVote1 = data.member1
+            let playerVote2 = data.member2
+            let playerVote3 = data.member3
+            let progressTotal = data.total
             toString().replace(/\B(?=(\d{4})+(?!\d))/g, "萬") + " 票"
 
             let plProBar1 = playerVote1 / progressTotal * 100
@@ -37,8 +33,6 @@ function ajax_vote() {
         }
     });
 } ajax_vote();
-
-setInterval(ajax_vote, 15000)
 
 // 陳其邁資料
 let player1 = {
@@ -246,11 +240,6 @@ var map1 = {
             <td>楊秋興</td>
             <td>450,644票</td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
     </tbody>
     `
 }
@@ -298,17 +287,17 @@ var map3 = {
         <tr>
             <td class="votesign">1</td>
             <td>陳其邁</td>
-            <td> 票</td>
+            <td>671,804 票</td>
         </tr>
         <tr>
             <td>2</td>
             <td>吳益政</td>
-            <td> 票</td>
+            <td>38,960 票</td>
         </tr>
         <tr>
             <td>3</td>
             <td>李眉蓁</td>
-            <td> 票</td>
+            <td>248,478 票</td>
         </tr>
     </tbody>
     `
@@ -514,7 +503,7 @@ document.getElementById("map1").onclick = () => {
     document.getElementById("mapData").innerHTML = map1.vote
     document.getElementById("khs2014").style.display = "block"
     document.getElementById("khs2018").style.display = "none"
-    // document.getElementById("khs2020").style.display = "none"
+    document.getElementById("khs2020").style.display = "none"
 
 }
 document.getElementById("map2").onclick = () => {
@@ -524,20 +513,20 @@ document.getElementById("map2").onclick = () => {
     document.getElementById("mapData").innerHTML = map2.vote
     document.getElementById("khs2014").style.display = "none"
     document.getElementById("khs2018").style.display = "block"
-    // document.getElementById("khs2020").style.display = "none"
+    document.getElementById("khs2020").style.display = "none"
 
 }
 
-// document.getElementById("map3").onclick = () => {
-//     document.getElementById("areaInfo").innerHTML = ""
-//     document.getElementById("areaInfo").style.display = "none"
-//     document.getElementById("bg-cover").style.display = "none"
-//     document.getElementById("mapData").innerHTML = map3.vote
-//     document.getElementById("khs2014").style.display = "none"
-//     document.getElementById("khs2018").style.display = "none"
-//     document.getElementById("khs2020").style.display = "block"
+document.getElementById("map3").onclick = () => {
+    document.getElementById("areaInfo").innerHTML = ""
+    document.getElementById("areaInfo").style.display = "none"
+    document.getElementById("bg-cover").style.display = "none"
+    document.getElementById("mapData").innerHTML = map3.vote
+    document.getElementById("khs2014").style.display = "none"
+    document.getElementById("khs2018").style.display = "none"
+    document.getElementById("khs2020").style.display = "block"
 
-// }
+}
 
 var urlsrc = "https://ftvnews-api2.azurewebsites.net/API/FtvGetNewsApp.aspx?Cate=%E9%AB%98%E9%9B%84%E8%A3%9C%E9%81%B8&Page=1&sp=6"
 
@@ -721,44 +710,44 @@ let allArea_2 = {
 }
 // 2020各區候選人得票數
 let allArea_3 = {
-    area01: ["前金區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area02: ["新興區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area03: ["鹽埕區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area04: ["左營區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area05: ["楠梓區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area06: ["鼓山區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area07: ["旗津區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area08: ["苓雅區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area09: ["三民區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area10: ["前鎮區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area11: ["小港區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area12: ["鳳山區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area13: ["鳥松區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area14: ["大社區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area15: ["仁武區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area16: ["大樹區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area17: ["岡山區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area18: ["燕巢區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area19: ["梓官區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area20: ["永安區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area21: ["彌陀區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area22: ["橋頭區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area23: ["田寮區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area24: ["茄萣區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area25: ["阿蓮區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area26: ["路竹區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area27: ["湖內區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area28: ["那瑪夏區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area29: ["桃源區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area30: ["茂林區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area31: ["六龜區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area32: ["美濃區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area33: ["旗山區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area34: ["甲仙區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area35: ["內門區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area36: ["杉林區", "陳其邁：", "吳益盛：", "李眉蓁："],
-    area37: ["林園區", "前金區陳其邁：", "吳益盛：", "李眉蓁："],
-    area38: ["大寮區", "陳其邁：", "吳益盛：", "李眉蓁："]
+    area01: ["前金區", "陳其邁：6,954", "吳益盛：665", "李眉蓁：2,811"],
+    area02: ["新興區", "陳其邁：12,833", "吳益盛：1,200", "李眉蓁：5,135"],
+    area03: ["鹽埕區", "陳其邁：7,113", "吳益盛：423", "李眉蓁：2,381"],
+    area04: ["左營區", "陳其邁：39,352", "吳益盛：2,701", "李眉蓁：21,062"],
+    area05: ["楠梓區", "陳其邁：42,700", "吳益盛：2,344", "李眉蓁：16,730"],
+    area06: ["鼓山區", "陳其邁：31,799", "吳益盛：1,990", "李眉蓁：13,315"],
+    area07: ["旗津區", "陳其邁：7,642", "吳益盛：260", "李眉蓁：2,089"],
+    area08: ["苓雅區", "陳其邁：41,222", "吳益盛：3,722", "李眉蓁：16,903"],
+    area09: ["三民區", "陳其邁：85,121", "吳益盛：5,091", "李眉蓁：28,434"],
+    area10: ["前鎮區", "陳其邁：48,346", "吳益盛：2,803", "李眉蓁：17,295"],
+    area11: ["小港區", "陳其邁：38,358", "吳益盛：1,947", "李眉蓁：12,269"],
+    area12: ["鳳山區", "陳其邁：82,698", "吳益盛：5,015", "李眉蓁：33,561"],
+    area13: ["鳥松區", "陳其邁：12,005", "吳益盛：681", "李眉蓁：4,076"],
+    area14: ["大社區", "陳其邁：9,702", "吳益盛：442", "李眉蓁：2,634"],
+    area15: ["仁武區", "陳其邁：23,305", "吳益盛：1,170", "李眉蓁：6,708"],
+    area16: ["大樹區", "陳其邁：11,738", "吳益盛：456", "李眉蓁：3,321"],
+    area17: ["岡山區", "陳其邁：22,854", "吳益盛：1,209", "李眉蓁：9,327"],
+    area18: ["燕巢區", "陳其邁：7,834", "吳益盛：319", "李眉蓁：2,480"],
+    area19: ["梓官區", "陳其邁：10,444", "吳益盛：452", "李眉蓁：2,842"],
+    area20: ["永安區", "陳其邁：3,420", "吳益盛：165", "李眉蓁：1,141"],
+    area21: ["彌陀區", "陳其邁：4,655", "吳益盛：208", "李眉蓁：1,868"],
+    area22: ["橋頭區", "陳其邁：12,372", "吳益盛：647", "李眉蓁：2,982"],
+    area23: ["田寮區", "陳其邁：1,961", "吳益盛：60", "李眉蓁：561"],
+    area24: ["茄萣區", "陳其邁：7,419", "吳益盛：226", "李眉蓁：2,209"],
+    area25: ["阿蓮區", "陳其邁：7,611", "吳益盛：281", "李眉蓁：1,905"],
+    area26: ["路竹區", "陳其邁：12,465", "吳益盛：806", "李眉蓁：4,052"],
+    area27: ["湖內區", "陳其邁：7,409", "吳益盛：307", "李眉蓁：2,008"],
+    area28: ["那瑪夏區", "陳其邁：238", "吳益盛：11", "李眉蓁：405"],
+    area29: ["桃源區", "陳其邁：245", "吳益盛：20", "李眉蓁：597"],
+    area30: ["茂林區", "陳其邁：104", "吳益盛：31", "李眉蓁：403"],
+    area31: ["六龜區", "陳其邁：2,319", "吳益盛：80", "李眉蓁：1,088"],
+    area32: ["美濃區", "陳其邁：7,895", "吳益盛：356", "李眉蓁：5,125"],
+    area33: ["旗山區", "陳其邁：8,798", "吳益盛：472", "李眉蓁：3,359"],
+    area34: ["甲仙區", "陳其邁：1,077", "吳益盛：35", "李眉蓁：738"],
+    area35: ["內門區", "陳其邁：3,077", "吳益盛：142", "李眉蓁：1,357"],
+    area36: ["杉林區", "陳其邁：2,219", "吳益盛：76", "李眉蓁：1,222"],
+    area37: ["林園區", "陳其邁：18,143", "吳益盛：858", "李眉蓁：4,905"],
+    area38: ["大寮區", "陳其邁：28,357", "吳益盛：1,289", "李眉蓁：9,180"]
 
 }
 
@@ -1457,6 +1446,356 @@ $(".path2").click(function (e) {
         })
         $(".layout_area").empty()
         $(allArea_2.area38.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+    }
+
+})
+
+
+// 2020 區塊
+$(".path3").click(function (e) {
+    let currentArea = this.getAttribute("title")
+    $(".layout_area").css("display", "block")
+    if (currentArea === "前金區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area01.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "新興區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area02.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "鹽埕區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area03.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "左營區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area04.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "楠梓區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area05.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "鼓山區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area06.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "旗津區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area07.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "苓雅區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area08.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "三民區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area09.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "前鎮區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area10.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "小港區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area11.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "鳳山區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area12.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "鳥松區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area13.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "大社區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area14.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "仁武區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area15.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "大樹區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area16.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "岡山區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area17.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "燕巢區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area18.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "梓官區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area19.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "永安區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area20.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "彌陀區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area21.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "橋頭區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area22.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "田寮區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area23.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "茄萣區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area24.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "阿蓮區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area25.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "路竹區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area26.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "湖內區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area27.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "那瑪夏區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area28.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "桃源區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area29.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "茂林區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area30.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "六龜區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area31.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "美濃區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area32.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "旗山區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area33.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "甲仙區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area34.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "內門區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area35.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "杉林區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area36.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else if (currentArea === "林園區") {
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area37.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
+
+    } else {//大寮區
+        $("#bg-cover").css("display", "block")
+        $("#bg-cover").click(function () {
+            $(".layout_area").css("display", "none")
+            $("#bg-cover").css("display", "none")
+        })
+        $(".layout_area").empty()
+        $(allArea_3.area38.forEach(element => $(".layout_area").append("<p>" + element + "</p>")))
     }
 
 })
